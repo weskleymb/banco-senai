@@ -31,7 +31,7 @@ public class MenuPrincipal {
                 new MenuCliente().run();
                 break;
             case 2:
-                System.out.println("Escolheu menu contas");
+                new MenuConta().run();
                 break;
             case 3:
                 System.exit(0);

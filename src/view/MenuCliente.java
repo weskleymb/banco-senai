@@ -53,7 +53,7 @@ public class MenuCliente {
     }
 
     private void editarCliente() {
-        System.out.print("Informe o ID do cliente desejado: ");
+        System.out.println("Informe o ID do cliente desejado: ");
         Cliente cliente = repository.listarUm(Integer.parseInt(entrada.nextLine()));
         if (cliente == null) {
             System.out.println("Cliente não encontrado");
@@ -64,16 +64,16 @@ public class MenuCliente {
 
     private void edita(Cliente cliente) {
         Character resposta;
-        System.out.print("Deseja alterar o nome " + cliente.getNome().toUpperCase() + "? ");
+        System.out.println("Deseja alterar o nome " + cliente.getNome().toUpperCase() + "? ");
         resposta = entrada.nextLine().toLowerCase().charAt(0);
         if (resposta.equals('s')) {
-            System.out.print("Informe o novo nome: ");
+            System.out.println("Informe o novo nome: ");
             cliente.setNome(entrada.nextLine());
         }
-        System.out.print("Deseja alterar o CPF " + cliente.getCpf().toUpperCase() + "? ");
+        System.out.println("Deseja alterar o CPF " + cliente.getCpf().toUpperCase() + "? ");
         resposta = entrada.nextLine().toLowerCase().charAt(0);
         if (resposta.equals('s')) {
-            System.out.print("Informe o novo CPF: ");
+            System.out.println("Informe o novo CPF: ");
             cliente.setCpf(entrada.nextLine());
         }
         repository.editar(cliente);
@@ -97,11 +97,11 @@ public class MenuCliente {
 
     private void cadastrar() {
         Cliente cliente = new Cliente();
-        System.out.print("Informe o nome do Titular: ");
+        System.out.println("Informe o nome do Titular: ");
         cliente.setNome(entrada.nextLine());
-        System.out.print("Informe o CPF: ");
+        System.out.println("Informe o CPF: ");
         cliente.setCpf(entrada.nextLine());
-        System.out.print("Informe seu endereço: ");
+        System.out.println("Informe seu endereço: ");
         cliente.setEndereco(entrada.nextLine());
 
         repository.salvar(cliente);

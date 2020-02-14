@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
 
+    private Scanner entrada = new Scanner(System.in);
+
     public void run() {
 
         StringBuilder builder = new StringBuilder();
@@ -17,9 +19,7 @@ public class MenuPrincipal {
 
         System.out.println(builder.toString());
 
-        Scanner entrada = new Scanner(System.in);
-
-        Integer escolha = entrada.nextInt();
+        Integer escolha = Integer.parseInt(entrada.nextLine());
 
         chamarSubMenu(escolha);
 

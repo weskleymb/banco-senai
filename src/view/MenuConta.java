@@ -51,13 +51,13 @@ public class MenuConta {
     }
 
     private void cadastrarConta() {
-        System.out.print("Informe o ID do cliente: ");
+        System.out.println("Informe o ID do cliente: ");
         Cliente titular = clienteRepository.listarUm(Integer.parseInt(entrada.nextLine()));
         if (titular == null) {
             System.out.println("Cliente não encontrado!");
             System.out.println("REPITA A OPERAÇÃO");
         } else {
-            System.out.print("Informe o saldo inicial: ");
+            System.out.println("Informe o saldo inicial: ");
             Double saldo = Double.parseDouble(entrada.nextLine());
             criarConta(titular, saldo);
         }

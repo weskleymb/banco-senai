@@ -29,9 +29,7 @@ public class MenuConta {
 
         System.out.println(builder.toString());
 
-        Scanner entrada = new Scanner(System.in);
-
-        Integer escolha = entrada.nextInt();
+        Integer escolha = Integer.parseInt(entrada.nextLine());
 
         orquestrador(escolha);
 
@@ -54,13 +52,13 @@ public class MenuConta {
 
     private void cadastrarConta() {
         System.out.print("Informe o ID do cliente: ");
-        Cliente titular = clienteRepository.listarUm(entrada.nextInt());
+        Cliente titular = clienteRepository.listarUm(Integer.parseInt(entrada.nextLine()));
         if (titular == null) {
             System.out.println("Cliente não encontrado!");
             System.out.println("REPITA A OPERAÇÃO");
         } else {
             System.out.print("Informe o saldo inicial: ");
-            Double saldo = entrada.nextDouble();
+            Double saldo = Double.parseDouble(entrada.nextLine());
             criarConta(titular, saldo);
         }
     }
@@ -68,6 +66,7 @@ public class MenuConta {
     private void criarConta(Cliente titular, Double saldo) {
         ContaCorrente conta = new ContaCorrente(titular, saldo);
         repository.salvar(conta);
+        System.out.println("Conta salva com SUCESSO!!!");
     }
 
 
@@ -76,6 +75,5 @@ public class MenuConta {
             System.out.println(conta);
         }
     }
-
 
 }

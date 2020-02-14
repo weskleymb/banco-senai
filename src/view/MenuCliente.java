@@ -25,9 +25,7 @@ public class MenuCliente {
 
         System.out.println(builder.toString());
 
-        Scanner entrada = new Scanner(System.in);
-
-        Integer escolha = entrada.nextInt();
+        Integer escolha = Integer.parseInt(entrada.nextLine());
 
         orquestrador(escolha);
 
@@ -56,7 +54,7 @@ public class MenuCliente {
 
     private void editarCliente() {
         System.out.print("Informe o ID do cliente desejado: ");
-        Cliente cliente = repository.listarUm(entrada.nextInt());
+        Cliente cliente = repository.listarUm(Integer.parseInt(entrada.nextLine()));
         if (cliente == null) {
             System.out.println("Cliente não encontrado");
         } else {
@@ -65,24 +63,25 @@ public class MenuCliente {
     }
 
     private void edita(Cliente cliente) {
+        Character resposta;
         System.out.print("Deseja alterar o nome " + cliente.getNome().toUpperCase() + "? ");
-        Character resposta = entrada.next().toLowerCase().charAt(0);
+        resposta = entrada.nextLine().toLowerCase().charAt(0);
         if (resposta.equals('s')) {
             System.out.print("Informe o novo nome: ");
             cliente.setNome(entrada.nextLine());
         }
-        System.out.print("Deseja alterar o endereço " + cliente.getEndereco().toUpperCase() + "? ");
-        resposta = entrada.next().toLowerCase().charAt(0);
+        System.out.print("Deseja alterar o CPF " + cliente.getCpf().toUpperCase() + "? ");
+        resposta = entrada.nextLine().toLowerCase().charAt(0);
         if (resposta.equals('s')) {
-            System.out.print("Informe o novo endereço: ");
-            cliente.setEndereco(entrada.nextLine());
+            System.out.print("Informe o novo CPF: ");
+            cliente.setCpf(entrada.nextLine());
         }
         repository.editar(cliente);
     }
 
     private void buscarCliente() {
         System.out.println("Informe o ID do cliente desejado: ");
-        Cliente cliente = repository.listarUm(entrada.nextInt());
+        Cliente cliente = repository.listarUm(Integer.parseInt(entrada.nextLine()));
         if (cliente == null) {
             System.out.println("Cliente não encontrado");
         } else {

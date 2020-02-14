@@ -3,14 +3,11 @@ package view;
 import model.Cliente;
 import repository.ClienteRepository;
 
-import javax.swing.*;
-
 public class Principal {
 
     public static void main(String[] args) {
 
         carregaClientes();
-
         new MenuPrincipal().run();
 
     }

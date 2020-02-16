@@ -5,8 +5,6 @@ public class Cliente implements Persistivel {
     private Integer id;
     private String nome;
     private String cpf;
-    private String endereco;
-    private String sexo;
 
     @Override
     public Integer getId() {
@@ -34,29 +32,18 @@ public class Cliente implements Persistivel {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append(this.getClass().getSimpleName());
+        builder.append("[");
+        builder.append("nome: ");
+        builder.append(this.nome);
+        builder.append(", ");
+        builder.append("cpf: ");
+        builder.append(this.cpf);
+        builder.append("]");
+        return builder.toString().toUpperCase();
     }
 
 }
